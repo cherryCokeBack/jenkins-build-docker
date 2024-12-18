@@ -10,7 +10,7 @@ node {
     }
 
     stage('Build image') {
-          docker.build("$IMAGE",  'srv-web')
+          app = docker.build("$IMAGE",  'srv-web')
     }
 
     stage('Run image') {
