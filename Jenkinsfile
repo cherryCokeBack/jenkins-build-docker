@@ -2,15 +2,15 @@
 node {
 
   
-   def IMAGE="srv-web-formation"
-   def container_name="srv-web-formation"
+   def app
+   
 	
     stage('Clone') {
           checkout scm
     }
 
     stage('Build image') {
-          app = docker.build("$IMAGE",  'srv-web')
+          app = docker.build("srv-web")
     }
 
     stage('Run image') {
