@@ -9,12 +9,12 @@ node {
           checkout scm
     }
 
-    stage('Build') {
+    stage('Build image') {
           docker.build("$IMAGE",  '.')
     }
 
     stage('Run image') {
-        docker.image('srv-web-formation').withRun('--name srv-web' ) { c ->
+        docker.image('srv-web').withRun('-p 800-80 --name srv-web' ) { c ->
 
         sh 'docker ps | grep srv-web'
 	}
